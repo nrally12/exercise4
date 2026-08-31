@@ -548,20 +548,20 @@ function main() {
 				
 	rotateAndFlipPoly(poly);
 
-	var angle = -Math.PI / 12; // -20 degrees
+	var angle = -Math.PI / 12; // -15 degrees
 
 	for (var i = 0; i < originalPoly.length; i++) {
 	    var x = originalPoly[i].x;
 	    var z = originalPoly[i].z;
 
 	    // Rotate around center of square (0, 0, 10)
-	    var dz = z - 16;
+	    var dz = z - 10;
 
 	    originalPoly[i].x = x * Math.cos(angle) + dz * Math.sin(angle);
-	    originalPoly[i].z = -x * Math.sin(angle) + dz * Math.cos(angle) + 16;
+	    originalPoly[i].z = -x * Math.sin(angle) + dz * Math.cos(angle) + 10;
 
-	    originalPoly[i].y += 0;
-	    originalPoly[i].x += 16;
+	    // Move the rotated square to the right
+	    originalPoly[i].x += 15;
 	}
 	
     // Define and render a rectangle in 2D with colors and coords at corners
