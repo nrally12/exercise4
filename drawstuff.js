@@ -548,7 +548,7 @@ function main() {
 				
 	rotateAndFlipPoly(poly);
 	
-	var angle = -Math.PI / 6; // -20 degrees
+	var angle = -Math.PI / 12; // -20 degrees
 
 	for (var i = 0; i < originalPoly.length; i++) {
 	    var x = originalPoly[i].x;
