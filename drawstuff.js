@@ -557,7 +557,7 @@ function main() {
 	    originalPoly[i].x = x * Math.cos(angle) + z * Math.sin(angle);
 	    originalPoly[i].z = -x * Math.sin(angle) + z * Math.cos(angle);
 
-	    originalPoly[i].y -= 52;
+	    originalPoly[i].y -= 2;
 	}
 	
     // Define and render a rectangle in 2D with colors and coords at corners
