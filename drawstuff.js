@@ -399,6 +399,25 @@ function twoEdgeInterp(imagedata,e1,e2) {
     } // end vertical
 } // end twoEdgeInterp
 
+function rotateAndFlipPoly(poly) {
+    var angle = Math.PI / 4; // 45 degrees
+    var cos = Math.cos(angle);
+    var sin = Math.sin(angle);
+
+    for (var i = 0; i < poly.length; i++) {
+        var x = poly[i].x;
+        var y = poly[i].y;
+
+        // Rotate 45 degrees counterclockwise
+        var rotatedX = x * cos - y * sin;
+        var rotatedY = x * sin + y * cos;
+
+        // Flip across the y-axis
+        poly[i].x = -rotatedX;
+        poly[i].y = rotatedY;
+    }
+}
+
 // fills the passed 2d convex polygon
 // expects an array of vertices, listed in clockwise order
 // vertex objects have this structure: {x:float,y:float,c:Color}
@@ -520,6 +539,7 @@ function main() {
     var poly = [{x:-5,y:5,z:10,c:new Color(255,0,0,255)}, {x:5,y:5,z:10,c:new Color(0,255,0,255)}, 
                 {x:5,y:-5,z:10,c:new Color(0,0,0,255)}, {x:-5,y:-5,z:10,c:new Color(0,0,255,255)}];
     
+	rotateAndFlipPoly(poly);
     // Define and render a rectangle in 2D with colors and coords at corners
     projectPoly(imagedata,poly,view);
     fillPoly(imagedata,poly);
