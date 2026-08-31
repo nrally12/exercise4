@@ -547,18 +547,21 @@ function main() {
 	}));
 				
 	rotateAndFlipPoly(poly);
-	
+
 	var angle = -Math.PI / 9; // -20 degrees
 
 	for (var i = 0; i < originalPoly.length; i++) {
 	    var x = originalPoly[i].x;
 	    var z = originalPoly[i].z;
 
-	    originalPoly[i].x = x * Math.cos(angle) + z * Math.sin(angle);
-	    originalPoly[i].z = -x * Math.sin(angle) + z * Math.cos(angle);
+	    // Rotate around center of square (0, 0, 10)
+	    var dz = z - 10;
 
-	    originalPoly[i].y -= 0;
-		originalPoly[i].x += 18;
+	    originalPoly[i].x = x * Math.cos(angle) + dz * Math.sin(angle);
+	    originalPoly[i].z = -x * Math.sin(angle) + dz * Math.cos(angle) + 10;
+
+	    originalPoly[i].y += 0;
+	    originalPoly[i].x += 10;
 	}
 	
     // Define and render a rectangle in 2D with colors and coords at corners
