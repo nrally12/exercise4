@@ -539,10 +539,33 @@ function main() {
     var poly = [{x:-5,y:5,z:10,c:new Color(255,0,0,255)}, {x:5,y:5,z:10,c:new Color(0,255,0,255)}, 
                 {x:5,y:-5,z:10,c:new Color(0,0,0,255)}, {x:-5,y:-5,z:10,c:new Color(0,0,255,255)}];
     
+	var originalPoly = poly.map(v => ({
+	    x: v.x,
+	    y: v.y,
+	    z: v.z,
+	    c: v.c.clone()
+	}));
+				
 	rotateAndFlipPoly(poly);
+	
+	var angle = -Math.PI / 9; // -20 degrees
+
+	for (var i = 0; i < originalPoly.length; i++) {
+	    var x = originalPoly[i].x;
+	    var z = originalPoly[i].z;
+
+	    originalPoly[i].x = x * Math.cos(angle) + z * Math.sin(angle);
+	    originalPoly[i].z = -x * Math.sin(angle) + z * Math.cos(angle);
+
+	    originalPoly[i].y -= 12;
+	}
+	
     // Define and render a rectangle in 2D with colors and coords at corners
     projectPoly(imagedata,poly,view);
     fillPoly(imagedata,poly);
+	
+	projectPoly(imagedata, originalPoly, view);
+	fillPoly(imagedata, originalPoly);
     
     context.putImageData(imagedata, 0, 0); // display the image in the context
 }
