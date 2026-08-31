@@ -548,7 +548,7 @@ function main() {
 				
 	rotateAndFlipPoly(poly);
 	
-	var angle = -Math.PI / 4; // -20 degrees
+	var angle = -Math.PI / 6; // -20 degrees
 
 	for (var i = 0; i < originalPoly.length; i++) {
 	    var x = originalPoly[i].x;
@@ -557,7 +557,7 @@ function main() {
 	    originalPoly[i].x = x * Math.cos(angle) + z * Math.sin(angle);
 	    originalPoly[i].z = -x * Math.sin(angle) + z * Math.cos(angle);
 
-	    originalPoly[i].y -= 2;
+	    originalPoly[i].y -= 8;
 	}
 	
     // Define and render a rectangle in 2D with colors and coords at corners
