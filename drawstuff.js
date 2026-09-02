@@ -564,14 +564,6 @@ function main() {
     // Define and render a rectangle in 2D with colors and coords at corners
     projectPoly(imagedata,poly,view);
     fillPoly(imagedata,poly);
-	
-	projectPoly(imagedata, originalPoly, view);
-	
-	for (var i = 0; i < originalPoly.length; i++) {
-	    originalPoly[i].x += 150;
-	}
-	
-	fillPoly(imagedata, originalPoly);
     
     context.putImageData(imagedata, 0, 0); // display the image in the context
 }
