@@ -561,7 +561,7 @@ function main() {
 	    originalPoly[i].z = -x * Math.sin(angle) + dz * Math.cos(angle) + 10;
 
 	    // Move the rotated square to the right
-	    originalPoly[i].x += 5;
+	    originalPoly[i].x += 1;
 	}
 	
     // Define and render a rectangle in 2D with colors and coords at corners
