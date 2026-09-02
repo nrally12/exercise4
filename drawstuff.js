@@ -559,9 +559,6 @@ function main() {
 
 	    originalPoly[i].x = x * Math.cos(angle) + dz * Math.sin(angle);
 	    originalPoly[i].z = -x * Math.sin(angle) + dz * Math.cos(angle) + 10;
-
-	    // Move the rotated square to the right
-	    originalPoly[i].x += 8;
 	}
 	
     // Define and render a rectangle in 2D with colors and coords at corners
@@ -569,6 +566,11 @@ function main() {
     fillPoly(imagedata,poly);
 	
 	projectPoly(imagedata, originalPoly, view);
+	
+	for (var i = 0; i < originalPoly.length; i++) {
+	    originalPoly[i].x += 8;
+	}
+	
 	fillPoly(imagedata, originalPoly);
     
     context.putImageData(imagedata, 0, 0); // display the image in the context
