@@ -568,7 +568,7 @@ function main() {
 	projectPoly(imagedata, originalPoly, view);
 	
 	for (var i = 0; i < originalPoly.length; i++) {
-	    originalPoly[i].x += 8;
+	    originalPoly[i].x += 150;
 	}
 	
 	fillPoly(imagedata, originalPoly);
